@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Case Studies — Mill Street Energy</title>
+  <meta name="description" content="Explore Mill Street Energy case studies spanning municipalities, nonprofits, education, and commercial clients." />
+  <meta name="theme-color" content="#0F1C2E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            midnight: '#0F1C2E',
+            horizon: '#0B7C83',
+            aurora: '#31D7A9',
+            sand: '#FDF5EA',
+            slate: '#7E8FA6'
+          },
+          fontFamily: {
+            display: ['Space Grotesk', 'ui-sans-serif', 'system-ui'],
+            mono: ['IBM Plex Mono', 'ui-monospace', 'SFMono-Regular']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Space Grotesk', ui-sans-serif, system-ui; }
+  </style>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="text-slate-800 bg-white">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 bg-white/90 text-midnight font-semibold px-4 py-2 rounded-full">Skip to content</a>
+
+  <header class="sticky top-0 z-50 bg-white shadow-md">
+    <nav class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <a class="flex items-center" href="index.html">
+          <img src="https://i.imgur.com/8lhUYEs.png" alt="Mill Street Energy" class="h-10 w-auto">
+        </a>
+        <div class="hidden lg:flex items-center gap-8">
+          <a class="text-sm font-medium transition-colors text-slate-600 hover:text-teal-600" href="index.html">Home</a>
+          <a class="text-sm font-medium transition-colors text-slate-600 hover:text-teal-600" href="services.html">Services</a>
+          <a class="text-sm font-medium transition-colors text-slate-600 hover:text-teal-600" href="about.html">About</a>
+          <a class="text-sm font-medium transition-colors text-teal-500" href="case-studies.html">Case Studies</a>
+          <a class="text-sm font-medium transition-colors text-slate-600 hover:text-teal-600" href="https://calendar.app.google/32VoYeBpUmDV5E2g6">Contact</a>
+          <a href="https://calendar.app.google/32VoYeBpUmDV5E2g6">
+            <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm transition-colors shadow h-9 px-4 py-2 bg-teal-500 hover:bg-teal-600 text-white font-medium">Free Assessment</button>
+          </a>
+        </div>
+        <button class="lg:hidden p-2 rounded-lg text-slate-800" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu w-6 h-6"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="relative overflow-hidden py-32 bg-gradient-to-b from-[#061428] via-[#081e35] to-[#0f2d4c] text-white text-center">
+      <div class="absolute inset-0 opacity-30 pointer-events-none">
+        <div class="absolute top-[-4rem] right-[-2rem] w-[28rem] h-[28rem] bg-teal-500 rounded-full blur-[140px]"></div>
+        <div class="absolute bottom-[-5rem] left-[-2rem] w-[26rem] h-[26rem] bg-cyan-400 rounded-full blur-[140px]"></div>
+      </div>
+      <div class="max-w-5xl mx-auto px-6 space-y-6 relative z-10">
+        <p class="text-xs uppercase tracking-[0.4em] text-white/70">Case Studies</p>
+        <h1 class="text-4xl sm:text-5xl font-semibold">Results across municipalities, nonprofits, and commercial campuses</h1>
+        <p class="text-lg text-white/80">Discover how Mill Street Energy delivers measurable savings through aggregation, solar, efficiency, and energy management.</p>
+      </div>
+    </section>
+
+    <section class="py-16 bg-slate-50 border-b" x-data="{ filter: 'All Projects', categories: ['Community','Education','Nonprofit','Youth Services','Municipal','Commercial'] }">
+      <div class="max-w-7xl mx-auto px-6 space-y-10">
+        <div class="flex items-center gap-4 overflow-x-auto pb-2 bg-white rounded-2xl px-4 py-3 shadow">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-filter w-5 h-5 text-slate-400 flex-shrink-0"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+          <button @click="filter = 'All Projects'" :class="filter === 'All Projects' ? 'bg-teal-600 text-white' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'" class="px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all">All Projects</button>
+          <template x-for="category in categories" :key="category">
+            <button @click="filter = category" :class="filter === category ? 'bg-teal-600 text-white' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'" class="px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all" x-text="category"></button>
+          </template>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <article class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100" x-show="filter === 'All Projects' || filter === 'Community'" x-transition>
+            <div class="aspect-[4/3] relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&q=80" alt="Community Center" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-4 left-4"><span class="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-slate-700 capitalize">community</span></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900 mb-1 group-hover:text-teal-600 transition-colors">Community Center</h3>
+              <p class="text-sm text-slate-500 mb-3">Community</p>
+              <p class="text-slate-600 text-sm mb-4">Community center achieves energy independence through comprehensive solar and efficiency upgrades.</p>
+              <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                <div>
+                  <div class="text-teal-600 font-semibold text-sm">Net-zero ready campus</div>
+                  <div class="text-slate-500 text-xs">View project</div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-5 h-5 text-slate-400 group-hover:text-teal-600 group-hover:translate-x-1 transition-all"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+              </div>
+            </div>
+          </article>
+          <article class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100" x-show="filter === 'All Projects' || filter === 'Education'" x-transition>
+            <div class="aspect-[4/3] relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=1200&q=80" alt="Private Academy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-4 left-4"><span class="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-slate-700 capitalize">education</span></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900 mb-1 group-hover:text-teal-600 transition-colors">Private Academy</h3>
+              <p class="text-sm text-slate-500 mb-3">Methuen, MA</p>
+              <p class="text-slate-600 text-sm mb-4 line-clamp-3">Private school reduces operational costs by 38% while improving sustainability through comprehensive energy upgrades and solar installation.</p>
+              <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                <div>
+                  <div class="text-teal-600 font-semibold text-sm">38% operating cost reduction</div>
+                  <div class="text-slate-500 text-xs">$62,000 annual savings</div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-5 h-5 text-slate-400 group-hover:text-teal-600 group-hover:translate-x-1 transition-all"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+              </div>
+            </div>
+          </article>
+          <article class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100">
+            <div class="aspect-[4/3] relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Regional Food Bank" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-4 left-4"><span class="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-slate-700 capitalize">nonprofit</span></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900 mb-1 group-hover:text-teal-600 transition-colors">Regional Food Bank</h3>
+              <p class="text-sm text-slate-500 mb-3">Boston, MA</p>
+              <p class="text-slate-600 text-sm mb-4 line-clamp-3">Critical refrigeration systems optimized for maximum efficiency and resiliency with energy management systems for 24/7 monitoring.</p>
+              <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                <div>
+                  <div class="text-teal-600 font-semibold text-sm">24/7 resiliency planning</div>
+                  <div class="text-slate-500 text-xs">$89,000 annual savings</div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-5 h-5 text-slate-400 group-hover:text-teal-600 group-hover:translate-x-1 transition-all"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </div>
+              </div>
+          </article>
+          <article class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100">
+            <div class="aspect-[4/3] relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80" alt="Youth Services Center" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-4 left-4"><span class="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-slate-700 capitalize">youth services</span></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900 mb-1 group-hover:text-teal-600 transition-colors">Youth Services Center</h3>
+              <p class="text-sm text-slate-500 mb-3">Lawrence, MA</p>
+              <p class="text-slate-600 text-sm mb-4">Complete HVAC replacement across entire facility—23 units upgraded with incentives eliminating $500,000 off total project cost.</p>
+              <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                <div>
+                  <div class="text-teal-600 font-semibold text-sm">Full-site electrification roadmap</div>
+                  <div class="text-slate-500 text-xs">View project</div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-5 h-5 text-slate-400 group-hover:text-teal-600 group-hover:translate-x-1 transition-all"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+              </div>
+            </div>
+          </article>
+          <article class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100" x-show="filter === 'All Projects' || filter === 'Municipal'" x-transition>
+            <div class="aspect-[4/3] relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1569025743873-ea3a9ber528f?w=1200&q=80" alt="Municipal Partnership" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-4 left-4"><span class="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-slate-700 capitalize">municipal</span></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900 mb-1 group-hover:text-teal-600 transition-colors">Municipal Partnership</h3>
+              <p class="text-sm text-slate-500 mb-3">Greater Boston</p>
+              <p class="text-slate-600 text-sm mb-4">Municipal aggregation program launched providing residents with renewable energy choices and significant cost savings.</p>
+              <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                <div>
+                  <div class="text-teal-600 font-semibold text-sm">15% average resident savings</div>
+                  <div class="text-slate-500 text-xs">View project</div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-5 h-5 text-slate-400 group-hover:text-teal-600 group-hover:translate-x-1 transition-all"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+              </div>
+            </div>
+          </article>
+          <article class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100">
+            <div class="aspect-[4/3] relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=1200&q=80" alt="Manufacturing Facility" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-4 left-4"><span class="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-slate-700 capitalize">commercial</span></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900 mb-1 group-hover:text-teal-600 transition-colors">Museum Facility</h3>
+              <p class="text-sm text-slate-500 mb-3">Worcester, MA</p>
+              <p class="text-slate-600 text-sm mb-4 line-clamp-3">Energy efficiency assessment and upgrades including building management system implementation, lighting retrofit, and VFD/VSD motor drive installations.</p>
+              <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                <div>
+                  <div class="text-teal-600 font-semibold text-sm">28% energy reduction</div>
+                  <div class="text-slate-500 text-xs">$175,000 annual savings</div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-5 h-5 text-slate-400 group-hover:text-teal-600 group-hover:translate-x-1 transition-all"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="max-w-6xl mx-auto px-6 grid gap-8 lg:grid-cols-2 items-center">
+        <div class="space-y-5">
+          <p class="text-xs uppercase tracking-[0.4em] text-slate">Impact</p>
+          <h2 class="text-4xl font-semibold text-slate-900">Proof that comprehensive energy strategies pay off</h2>
+          <p class="text-lg text-slate-600">Whether it's municipal aggregation, solar plus storage, or enterprise efficiency programs, our clients realize meaningful operational savings that get reinvested in their missions.</p>
+          <a href="https://calendar.app.google/32VoYeBpUmDV5E2g6" class="inline-flex items-center gap-2 text-teal-600 font-semibold">Talk to our team
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="rounded-3xl border border-slate-100 p-6 bg-white text-center">
+            <p class="text-4xl font-semibold text-teal-600">$35M+</p>
+            <p class="text-sm text-slate-500">Total Client Savings</p>
+          </div>
+          <div class="rounded-3xl border border-slate-100 p-6 bg-white text-center">
+            <p class="text-4xl font-semibold text-teal-600">550+</p>
+            <p class="text-sm text-slate-500">Projects Completed</p>
+          </div>
+          <div class="rounded-3xl border border-slate-100 p-6 bg-white text-center">
+            <p class="text-4xl font-semibold text-teal-600">33%</p>
+            <p class="text-sm text-slate-500">Average Cost Reduction</p>
+          </div>
+          <div class="rounded-3xl border border-slate-100 p-6 bg-white text-center">
+            <p class="text-4xl font-semibold text-teal-600">100%</p>
+            <p class="text-sm text-slate-500">Client Satisfaction</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-teal-600 text-center">
+      <div class="max-w-3xl mx-auto px-6 space-y-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-white">Ready to become our next success story?</h2>
+        <p class="text-lg text-teal-100">Let's discuss how we can help your organization achieve similar results.</p>
+        <a href="https://calendar.app.google/32VoYeBpUmDV5E2g6" class="inline-flex items-center justify-center gap-2 rounded-md bg-white text-teal-700 font-semibold px-10 h-14 text-lg hover:bg-teal-50 transition">
+          Get Your Free Assessment
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-midnight text-white">
+    <div class="max-w-7xl mx-auto px-6 py-12">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="flex items-center gap-6">
+          <img src="https://i.imgur.com/8lhUYEs.png" alt="Mill Street Energy" class="h-8 w-auto brightness-0 invert">
+          <p class="text-white/60 text-sm">© 2024 Mill Street Energy. All rights reserved.</p>
+        </div>
+        <div class="flex flex-wrap gap-6 text-sm">
+          <a href="index.html" class="text-white/60 hover:text-white transition-colors">Home</a>
+          <a href="services.html" class="text-white/60 hover:text-white transition-colors">Services</a>
+          <a href="about.html" class="text-white/60 hover:text-white transition-colors">About</a>
+          <a href="case-studies.html" class="text-white/60 hover:text-white transition-colors">Case Studies</a>
+          <a href="https://calendar.app.google/32VoYeBpUmDV5E2g6" class="text-white/60 hover:text-white transition-colors">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
